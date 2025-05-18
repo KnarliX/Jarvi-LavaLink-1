@@ -1,0 +1,21 @@
+{
+  "name": "Jarvi Lavalink",
+  "env": "docker",
+  "plan": "free",
+  "region": "frankfurt",
+  "envVars": [
+    {
+      "key": "SERVER_PORT",
+      "value": "80"
+    },
+    {
+      "key": "LAVALINK_SERVER_PASSWORD", 
+      "value": "Jarvi1.0"
+    },
+    {
+      "key": "_JAVA_OPTIONS",
+      "value": "-Xmx512m -Xms128m"
+    }
+  ],
+  "healthCheckPath": "/version"
+}

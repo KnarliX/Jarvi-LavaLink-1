@@ -1,0 +1,36 @@
+# Git files
+.git
+.github
+.gitignore
+
+# Documentation
+docs/
+*.md
+!README.md
+!JARVI_README.md
+!DEPLOYMENT_GUIDE.md
+
+# Build files
+gradle/
+gradlew
+gradlew.bat
+*.gradle
+build/
+out/
+kotlin-js-store/
+
+# Development files
+.idea/
+*.iml
+*.log
+*.jar
+!Lavalink.jar
+
+# Editor files
+.vscode/
+.editorconfig
+
+# Project files we don't need in the container
+protocol/
+plugin-api/
+branding/

@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: jarvi-lavalink
+    env: docker
+    plan: free
+    region: frankfurt # Choose the region closest to your users
+    healthCheckPath: /version
+    envVars:
+      - key: SERVER_PORT
+        value: 80
+      - key: LAVALINK_SERVER_PASSWORD
+        value: Jarvi1.0
+      - key: _JAVA_OPTIONS
+        value: "-Xmx512m -Xms128m"
+    disk:
+      name: lavalink-data
+      mountPath: /opt/Lavalink/plugins
+      sizeGB: 1
+    buildCommand: echo "Building Jarvi Lavalink server..."

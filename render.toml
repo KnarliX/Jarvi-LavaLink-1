@@ -1,0 +1,22 @@
+[build]
+  builder = "DOCKERFILE"
+  buildCommand = "echo 'Building Jarvi Lavalink Server...'"
+
+[env]
+  SERVER_PORT = "80"
+  LAVALINK_SERVER_PASSWORD = "Jarvi1.0"
+  _JAVA_OPTIONS = "-Xmx512m -Xms128m"
+
+[http]
+  port = 80
+  
+[[statics]]
+  guestPath = "/opt/Lavalink/plugins"
+  url_prefix = "/plugins"
+
+[checks]
+  path = "/version"
+  method = "GET"
+  interval = "25s"
+  timeout = "5s"
+  grace_period = "30s"

@@ -1,12 +1,12 @@
 # Jarvi Lavalink Server
 
-<img align="right" src="/branding/lavalink.svg" width=200 alt="Lavalink logo">
-
 A Lavalink server configured for easy one-click deployment on render.com's free plan for the "Jarvi" Discord music bot.
+
+<img align="right" src="/branding/lavalink.svg" width=200 alt="Lavalink logo">
 
 ## Quick Deployment
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/YOUR_USERNAME/YOUR_REPO_NAME)
 
 ## Features
 
@@ -61,20 +61,6 @@ For more detailed instructions and advanced configuration options, please see:
 - [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md) - Basic deployment instructions
 - [COMPREHENSIVE_GUIDE.md](./COMPREHENSIVE_GUIDE.md) - Detailed setup and configuration options
 
-## Lavalink Features
-
-* Powered by Lavaplayer
-* Minimal CPU/memory footprint
-* Twitch/YouTube stream support
-* Event system
-* Seeking
-* Volume control
-* REST API for resolving tracks and controlling players
-* Statistics (good for load balancing)
-* Basic authentication
-* Plugin support
-
 ## Credits
 
 This project is based on [Lavalink](https://github.com/lavalink-devs/Lavalink), optimized specifically for the Jarvi Discord music bot on render.com's free plan.
-

@@ -10,7 +10,7 @@ WORKDIR /opt/Lavalink
 RUN curl -L https://github.com/lavalink-devs/Lavalink/releases/latest/download/Lavalink.jar -o Lavalink.jar
 
 # Copy configuration and startup scripts
-COPY LavalinkServer/application.yml application.yml
+COPY application.yml application.yml
 COPY start.sh start.sh
 COPY render-start.sh render-start.sh
 RUN chmod +x start.sh render-start.sh

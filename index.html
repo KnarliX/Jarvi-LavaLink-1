@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="shortcut icon" href="https://cdn-knarlix.github.io/images/jarvi/jarvi-logo.svg" type="image/x-icon"/>
+  <title>Jarvi Lavalink Server</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      color: #ffffff;
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #00ffd5;
+      text-shadow: 0 0 10px #00ffd5;
+      margin-bottom: 20px;
+    }
+
+    .status {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 255, 213, 0.3);
+      box-shadow: 0 8px 24px rgba(0, 255, 213, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 20px 30px;
+      border-radius: 16px;
+      text-align: center;
+      max-width: 90%;
+    }
+
+    .status p {
+      font-size: 1.2rem;
+      color: #cccccc;
+      margin: 8px 0;
+    }
+
+    .status strong {
+      color: #00ff88;
+      text-shadow: 0 0 5px #00ff88;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      .status p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Jarvi Lavalink Server</h1>
+  <div class="status">
+    <p>Status: <strong>🟢 Online</strong></p>
+    <p>Port: <strong>2333</strong></p>
+    <p>Secured: <strong>Yes (HTTPS)</strong></p>
+  </div>
+</body>
+</html>

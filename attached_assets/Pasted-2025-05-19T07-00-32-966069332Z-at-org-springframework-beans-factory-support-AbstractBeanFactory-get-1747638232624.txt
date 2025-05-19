@@ -1,0 +1,50 @@
+2025-05-19T07:00:32.966069332Z 	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.18.jar!/:5.3.18]
+2025-05-19T07:00:32.966071592Z 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:953) ~[spring-beans-5.3.18.jar!/:5.3.18]
+2025-05-19T07:00:32.966073892Z 	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918) ~[spring-context-5.3.18.jar!/:5.3.18]
+2025-05-19T07:00:32.966076212Z 	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.18.jar!/:5.3.18]
+2025-05-19T07:00:32.966078512Z 	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.6.6.jar!/:2.6.6]
+2025-05-19T07:00:32.966081102Z 	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740) ~[spring-boot-2.6.6.jar!/:2.6.6]
+2025-05-19T07:00:32.966083392Z 	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:415) ~[spring-boot-2.6.6.jar!/:2.6.6]
+2025-05-19T07:00:32.966086342Z 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303) ~[spring-boot-2.6.6.jar!/:2.6.6]
+2025-05-19T07:00:32.966088582Z 	at org.springframework.boot.builder.SpringApplicationBuilder.run(SpringApplicationBuilder.java:164) ~[spring-boot-2.6.6.jar!/:2.6.6]
+2025-05-19T07:00:32.966090932Z 	at lavalink.server.Launcher.launchMain(Launcher.kt:165) ~[classes!/:na]
+2025-05-19T07:00:32.966093172Z 	at lavalink.server.Launcher.main(Launcher.kt:127) ~[classes!/:na]
+2025-05-19T07:00:32.966095502Z 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2025-05-19T07:00:32.966097692Z 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+2025-05-19T07:00:32.966099892Z 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+2025-05-19T07:00:32.966101942Z 	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+2025-05-19T07:00:32.966104092Z 	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) ~[Lavalink.jar:na]
+2025-05-19T07:00:32.966106332Z 	at org.springframework.boot.loader.Launcher.launch(Launcher.java:108) ~[Lavalink.jar:na]
+2025-05-19T07:00:32.966108542Z 	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) ~[Lavalink.jar:na]
+2025-05-19T07:00:32.966110822Z 	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:88) ~[Lavalink.jar:na]
+2025-05-19T07:00:32.966114742Z Caused by: java.lang.UnsatisfiedLinkError: /tmp/lava-jni-natives/1747638032861/libudpqueue.so: Error loading shared library libgcc_s.so.1: No such file or directory (needed by /tmp/lava-jni-natives/1747638032861/libudpqueue.so)
+2025-05-19T07:00:32.966123122Z 	at java.base/java.lang.ClassLoader$NativeLibrary.load0(Native Method) ~[na:na]
+2025-05-19T07:00:32.966125633Z 	at java.base/java.lang.ClassLoader$NativeLibrary.load(ClassLoader.java:2440) ~[na:na]
+2025-05-19T07:00:32.966127742Z 	at java.base/java.lang.ClassLoader$NativeLibrary.loadLibrary(ClassLoader.java:2497) ~[na:na]
+2025-05-19T07:00:32.966130002Z 	at java.base/java.lang.ClassLoader.loadLibrary0(ClassLoader.java:2694) ~[na:na]
+2025-05-19T07:00:32.966132162Z 	at java.base/java.lang.ClassLoader.loadLibrary(ClassLoader.java:2627) ~[na:na]
+2025-05-19T07:00:32.966134623Z 	at java.base/java.lang.Runtime.load0(Runtime.java:744) ~[na:na]
+2025-05-19T07:00:32.966169933Z 	at java.base/java.lang.System.load(System.java:1870) ~[na:na]
+2025-05-19T07:00:32.966172613Z 	at com.sedmelluq.lava.common.natives.NativeLibraryLoader.loadFromFile(NativeLibraryLoader.java:118) ~[lava-common-1.5.0.jar!/:na]
+2025-05-19T07:00:32.966174903Z 	at com.sedmelluq.lava.common.natives.NativeLibraryLoader.loadInternal(NativeLibraryLoader.java:110) ~[lava-common-1.5.0.jar!/:na]
+2025-05-19T07:00:32.966177103Z 	at com.sedmelluq.lava.common.natives.NativeLibraryLoader.loadWithFailureCheck(NativeLibraryLoader.java:84) ~[lava-common-1.5.0.jar!/:na]
+2025-05-19T07:00:32.966181254Z 	... 72 common frames omitted
+2025-05-19T07:00:32.966183363Z 
+2025-05-19T07:00:34.260383178Z 2025-05-19 07:00:34.260  WARN 7 --- [           main] l.server.config.SentryConfiguration      : Turning off sentry
+2025-05-19T07:00:34.762191663Z 2025-05-19 07:00:34.758  WARN 7 --- [      Finalizer] c.s.l.c.natives.NativeResourceHolder     : Should have been closed before finalization (com.sedmelluq.discord.lavaplayer.udpqueue.natives.UdpQueueManager).
+2025-05-19T07:00:40.041412436Z ==> Detected a new open port HTTP:80
+2025-05-19T07:00:45.460437347Z 2025-05-19 07:00:45.460  INFO 7 --- [           main] io.undertow                              : starting server: Undertow - 2.2.16.Final
+2025-05-19T07:00:45.560757429Z 2025-05-19 07:00:45.560  INFO 7 --- [           main] org.xnio                                 : XNIO version 3.8.6.Final
+2025-05-19T07:00:45.662619789Z 2025-05-19 07:00:45.662  INFO 7 --- [           main] org.xnio.nio                             : XNIO NIO Implementation Version 3.8.6.Final
+2025-05-19T07:00:46.660952502Z 2025-05-19 07:00:46.660  INFO 7 --- [           main] org.jboss.threads                        : JBoss Threads version 3.1.0.Final
+2025-05-19T07:00:47.0664718Z 2025-05-19 07:00:46.968  INFO 7 --- [           main] o.s.b.w.e.undertow.UndertowWebServer     : Undertow started on port(s) 80 (http)
+2025-05-19T07:00:47.164792995Z 2025-05-19 07:00:47.164  INFO 7 --- [           main] lavalink.server.Launcher                 : Started Launcher in 68.805 seconds (JVM running for 124.805)
+2025-05-19T07:00:47.261360777Z 2025-05-19 07:00:47.259  INFO 7 --- [           main] lavalink.server.Launcher                 : Lavalink is ready to accept connections.
+2025-05-19T07:00:47.966071859Z 2025-05-19 07:00:47.965  INFO 7 --- [  XNIO-1 task-1] io.undertow.servlet                      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-19T07:00:47.966617149Z 2025-05-19 07:00:47.966  INFO 7 --- [  XNIO-1 task-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-19T07:00:47.967444944Z 2025-05-19 07:00:47.967  INFO 7 --- [  XNIO-1 task-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-05-19T07:00:48.074906209Z 2025-05-19 07:00:48.074 ERROR 7 --- [  XNIO-1 task-1] l.server.io.HandshakeInterceptorImpl     : Authentication failed from /0:0:0:0:0:0:0:1:51082
+2025-05-19T07:00:54.570599157Z ==> Your service is live 🎉
+2025-05-19T07:00:56.741921751Z 2025-05-19 07:00:56.738 ERROR 7 --- [  XNIO-1 task-1] l.server.io.HandshakeInterceptorImpl     : Authentication failed from /35.197.37.4:0
+2025-05-19T07:01:30.759603856Z 2025-05-19 07:01:30.758 ERROR 7 --- [  XNIO-1 task-1] l.server.io.HandshakeInterceptorImpl     : Authentication failed from /216.144.248.18:0
+2025-05-19T07:01:42.97032609Z ==> Detected a new open port HTTP:80

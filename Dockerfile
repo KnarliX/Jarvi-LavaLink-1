@@ -1,51 +1,33 @@
-FROM openjdk:13-alpine
+FROM fredboat/lavalink:legacy
 
-# Install minimal packages
-RUN apk add --no-cache bash curl
+# Setup working directory
+WORKDIR /opt/Lavalink
 
-# Create app directory
-WORKDIR /app
+# Create simple status page
+RUN echo '<!DOCTYPE html><html><head><title>Jarvi Lavalink</title><style>body{font-family:Arial,sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;background:#f7f7f7}.container{text-align:center;padding:2em;border-radius:8px;background:white;box-shadow:0 4px 8px rgba(0,0,0,0.1);max-width:80%}.status{color:#4CAF50;font-weight:bold;margin:1em 0}.info{margin-top:2em;color:#555}.footer{margin-top:2em;font-size:0.8em;color:#777}</style></head><body><div class="container"><h1>Jarvi Lavalink Server</h1><div class="status">✅ Server Status: ONLINE</div><div class="info"><p>This is a premium audio server for the Jarvi Discord music bot.</p><p>Audio Quality: 10/10</p></div><div class="footer">Jarvi Lavalink Server © 2025</div></div></body></html>' > /var/www/html/index.html
 
-# Download Lavalink.jar (latest stable version)
-RUN curl -L https://github.com/lavalink-devs/Lavalink/releases/download/3.7.8/Lavalink.jar -o Lavalink.jar
-
-# Create a simple application.yml optimized for render.com
-RUN echo 'server:' > application.yml && \
-    echo '  port: ${PORT:2333}' >> application.yml && \
-    echo '  address: 0.0.0.0' >> application.yml && \
-    echo 'lavalink:' >> application.yml && \
-    echo '  server:' >> application.yml && \
-    echo '    password: "Jarvi1.0"' >> application.yml && \
-    echo '    sources:' >> application.yml && \
-    echo '      youtube: true' >> application.yml && \
-    echo '      soundcloud: true' >> application.yml && \
-    echo '    youtubeSearchEnabled: true' >> application.yml && \
-    echo '    soundcloudSearchEnabled: true' >> application.yml && \
-    echo '    bufferDurationMs: 400' >> application.yml && \
-    echo '    youtubePlaylistLoadLimit: 5' >> application.yml && \
-    echo '    opusEncodingQuality: 10' >> application.yml && \
-    echo 'logging:' >> application.yml && \
-    echo '  file:' >> application.yml && \
-    echo '    max-history: 1' >> application.yml && \
-    echo '    max-size: 10MB' >> application.yml && \
-    echo '  level:' >> application.yml && \
-    echo '    root: INFO' >> application.yml && \
-    echo '    lavalink: INFO' >> application.yml
-
-# Create status page for health checks
-RUN echo '<html><head><title>Jarvi Lavalink</title></head><body><h1>Jarvi Music Server</h1><p>Status: Online</p></body></html>' > index.html
-
-# Create logs directory
-RUN mkdir -p logs
+# Modify application.yml for premium audio quality
+RUN sed -i 's/youtubePlaylistLoadLimit:.*/youtubePlaylistLoadLimit: 10/' application.yml && \
+    sed -i 's/server:/server:\n  http2:\n    enabled: false/' application.yml && \
+    sed -i 's/password:.*/password: "Jarvi1.0"/' application.yml && \
+    sed -i 's/frameBufferDurationMs:.*/frameBufferDurationMs: 4000/' application.yml && \
+    sed -i 's/bufferDurationMs:.*/bufferDurationMs: 400/' application.yml && \
+    sed -i 's/opusEncodingQuality:.*/opusEncodingQuality: 10/' application.yml && \
+    sed -i 's/resamplingQuality:.*/resamplingQuality: HIGH/' application.yml 
 
 # Create startup script
-RUN echo '#!/bin/sh' > start.sh && \
-    echo 'echo "Starting Jarvi Lavalink server on port ${PORT:-2333}"' >> start.sh && \
-    echo 'java -Xmx400m -jar Lavalink.jar' >> start.sh && \
-    chmod +x start.sh
+RUN echo '#!/bin/bash' > /opt/Lavalink/start.sh && \
+    echo 'echo "Starting Jarvi Lavalink Server"' >> /opt/Lavalink/start.sh && \
+    echo 'if [ -n "$PORT" ]; then' >> /opt/Lavalink/start.sh && \
+    echo '    sed -i "s/BIND_PORT=.*/BIND_PORT=$PORT/" /opt/Lavalink/application.properties' >> /opt/Lavalink/start.sh && \
+    echo 'fi' >> /opt/Lavalink/start.sh && \
+    echo 'cd /opt/Lavalink' >> /opt/Lavalink/start.sh && \
+    echo 'nginx &' >> /opt/Lavalink/start.sh && \
+    echo 'java -Djdk.tls.client.protocols=TLSv1.1,TLSv1.2 -Xmx512m -jar Lavalink.jar' >> /opt/Lavalink/start.sh && \
+    chmod +x /opt/Lavalink/start.sh
 
-# Expose port
-EXPOSE 2333
+# Make sure Nginx uses our status page as default
+RUN echo 'server { listen 80; root /var/www/html; index index.html; location / { try_files $uri $uri/ =404; } }' > /etc/nginx/http.d/default.conf
 
 # Start command
-CMD ["./start.sh"]
+CMD ["/opt/Lavalink/start.sh"]

@@ -1,21 +1,21 @@
 FROM openjdk:13-alpine
 
-# Install minimal packages
-RUN apk add --no-cache bash curl
+# Install required packages
+RUN apk add --no-cache bash curl busybox
 
 # Create app directory
 WORKDIR /app
 
-# Download Lavalink.jar (latest stable version)
+# Download Lavalink JAR
 RUN curl -L https://github.com/lavalink-devs/Lavalink/releases/download/3.7.8/Lavalink.jar -o Lavalink.jar
 
-# Create a simple application.yml optimized for render.com
+# Write Lavalink config
 RUN echo 'server:' > application.yml && \
     echo '  port: ${PORT:2333}' >> application.yml && \
     echo '  address: 0.0.0.0' >> application.yml && \
     echo 'lavalink:' >> application.yml && \
     echo '  server:' >> application.yml && \
-    echo '    password: "Jarvi1.0"' >> application.yml && \
+    echo '    password: "Janvijaanu"' >> application.yml && \
     echo '    sources:' >> application.yml && \
     echo '      youtube: true' >> application.yml && \
     echo '      soundcloud: true' >> application.yml && \
@@ -32,20 +32,19 @@ RUN echo 'server:' > application.yml && \
     echo '    root: INFO' >> application.yml && \
     echo '    lavalink: INFO' >> application.yml
 
-# Create status page for health checks
-RUN echo '<html><head><title>Jarvi Lavalink</title></head><body><h1>Jarvi Music Server</h1><p>Status: Online</p></body></html>' > index.html
+# Make web directory and copy index.html
+RUN mkdir -p /www
+COPY index.html /www/index.html
 
-# Create logs directory
-RUN mkdir -p logs
+# Expose Lavalink port and web status port
+EXPOSE 2333 8080
 
-# Create startup script
+# Start script for Lavalink + static page server
 RUN echo '#!/bin/sh' > start.sh && \
-    echo 'echo "Starting Jarvi Lavalink server on port ${PORT:-2333}"' >> start.sh && \
+    echo 'echo "Starting Lavalink and static status server..."' >> start.sh && \
+    echo 'busybox httpd -f -p 8080 -h /www &' >> start.sh && \
     echo 'java -Xmx400m -jar Lavalink.jar' >> start.sh && \
     chmod +x start.sh
 
-# Expose port
-EXPOSE 2333
-
-# Start command
+# Start both Lavalink and static site
 CMD ["./start.sh"]

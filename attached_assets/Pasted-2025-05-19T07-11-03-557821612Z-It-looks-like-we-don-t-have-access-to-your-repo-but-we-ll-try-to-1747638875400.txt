@@ -1,0 +1,34 @@
+2025-05-19T07:11:03.557821612Z ==> It looks like we don't have access to your repo, but we'll try to clone it anyway.
+2025-05-19T07:11:03.557924613Z ==> Cloning from https://github.com/KnarliX/Jarvi-LavaLink-1
+2025-05-19T07:11:04.49548215Z ==> Checking out commit 1c7741f02892a1a8c4dff39821f4952f717de836 in branch main
+2025-05-19T07:11:05.717287475Z ==> Downloading cache...
+2025-05-19T07:11:28.404776502Z ==> Transferred 575MB in 9s. Extraction took 1s.
+2025-05-19T07:11:40.290537747Z #1 [internal] load build definition from Dockerfile
+2025-05-19T07:11:40.591426051Z #1 transferring dockerfile: 2.49kB done
+2025-05-19T07:11:40.708403318Z #1 DONE 0.4s
+2025-05-19T07:11:40.859195085Z 
+2025-05-19T07:11:40.859222506Z #2 [internal] load metadata for docker.io/fredboat/lavalink:legacy
+2025-05-19T07:11:41.912020183Z #2 ...
+2025-05-19T07:11:41.912049524Z 
+2025-05-19T07:11:41.912056694Z #3 [auth] fredboat/lavalink:pull render-prod/docker-mirror-repository/fredboat/lavalink:pull token for us-west1-docker.pkg.dev
+2025-05-19T07:11:41.912066784Z #3 DONE 0.0s
+2025-05-19T07:11:42.06216994Z 
+2025-05-19T07:11:42.06218707Z #2 [internal] load metadata for docker.io/fredboat/lavalink:legacy
+2025-05-19T07:11:44.31732066Z #2 ...
+2025-05-19T07:11:44.31733952Z 
+2025-05-19T07:11:44.31734552Z #4 [auth] fredboat/lavalink:pull token for registry-1.docker.io
+2025-05-19T07:11:44.31735018Z #4 DONE 0.0s
+2025-05-19T07:11:44.468416993Z 
+2025-05-19T07:11:44.468442133Z #2 [internal] load metadata for docker.io/fredboat/lavalink:legacy
+2025-05-19T07:11:45.219848967Z #2 ERROR: docker.io/fredboat/lavalink:legacy: not found
+2025-05-19T07:11:46.532297739Z ------
+2025-05-19T07:11:46.53233277Z  > [internal] load metadata for docker.io/fredboat/lavalink:legacy:
+2025-05-19T07:11:46.53233755Z ------
+2025-05-19T07:11:46.532665785Z Dockerfile:1
+2025-05-19T07:11:46.532681365Z --------------------
+2025-05-19T07:11:46.532686346Z    1 | >>> FROM fredboat/lavalink:legacy
+2025-05-19T07:11:46.532690016Z    2 |     
+2025-05-19T07:11:46.532694036Z    3 |     # Setup working directory
+2025-05-19T07:11:46.532697926Z --------------------
+2025-05-19T07:11:46.532701976Z error: failed to solve: fredboat/lavalink:legacy: docker.io/fredboat/lavalink:legacy: not found
+2025-05-19T07:11:46.581534821Z error: exit status 1
